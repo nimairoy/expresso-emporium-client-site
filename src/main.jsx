@@ -4,6 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Main from './layouts/Main.jsx'
+import AddCoffee from './components/AddCoffee/AddCoffee.jsx'
 
 const router = createBrowserRouter([
   {
@@ -12,7 +13,12 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <App></App>
+        element: <App></App>,
+        loader: ()=> fetch('http://localhost:5000/coffees')
+      },
+      {
+        path: '/addcoffee',
+        element: <AddCoffee></AddCoffee>
       }
     ]
   }

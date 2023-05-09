@@ -1,19 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+import { useLoaderData } from 'react-router-dom'
 import Banner from './components/Banner/Banner'
 import IconCard from './components/IconCard/IconCard'
 import ProductCard from './components/ProductCard/ProductCard'
+import { useState } from 'react';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const loadedCoffees = useLoaderData();
+  const [coffees, setCoffees] = useState(loadedCoffees);
+
 
   return (
     <div>
-        <Banner></Banner>
-        <IconCard></IconCard>
-        <ProductCard></ProductCard>
+      <Banner></Banner>
+      <IconCard></IconCard>
+      <ProductCard
+        coffees={coffees}
+        setCoffees={setCoffees}
+      ></ProductCard>
     </div>
   )
 }
