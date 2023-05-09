@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiEdit, FiEye, FiTrash2 } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
@@ -57,7 +58,7 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
             </div>
             <div>
                 <button className='btn btn-warning block mt-4'><FiEye className='text-2xl'></FiEye></button>
-                <button className='btn btn-success block mt-4'><FiEdit className='text-2xl'></FiEdit></button>
+                <Link to={`/updatecoffees/${_id}`} ><button className='btn btn-success block mt-4'><FiEdit className='text-2xl'></FiEdit></button></Link>
                 <button onClick={() => handleDelete(_id)} className='btn btn-error block mt-4'><FiTrash2 className='text-2xl'></FiTrash2></button>
             </div>
         </div>
